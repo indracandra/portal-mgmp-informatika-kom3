@@ -1,12 +1,12 @@
 {
   "name": "Portal Informatika KOM 3 - MGMP Informatika SMP Komisariat 3",
   "short_name": "Info Kom 3",
-  "description": "Portal MGMP Informatika SMP Komisariat 3 Kabupaten Ciamis — V1.1 FINAL Robot 3D + Informatika Hub",
+  "description": "Portal MGMP Informatika SMP Komisariat 3 Kabupaten Ciamis — V1.2 Neon Robot Theme",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f4f7fa",
-  "theme_color": "#312e81",
+  "background_color": "#04152f",
+  "theme_color": "#081a38",
   "lang": "id",
   "icons": [
     {
