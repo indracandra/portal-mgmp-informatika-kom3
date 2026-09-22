@@ -5173,6 +5173,96 @@ async function setLearningResourceStatus(id, status) {
 
 
 
+
+/* =========================================================
+   V1.1 INFORMATIKA - INFORMATIKA HUB
+   Additive module. Semua modul V1.0 tetap dipertahankan.
+========================================================= */
+const infoHubState = { category:"CODE_PROJECT", tab:"PUBLISHED", data:null, query:"" };
+
+function infoHubCategoryMeta_(c){
+  return {
+    CODE_PROJECT:{label:"Code & Project Hub",icon:"💻",desc:"Scratch, Python, Web, Apps Script, algoritma, dan proyek coding."},
+    BANK_SOAL:{label:"Bank Soal Informatika",icon:"🧠",desc:"Soal, asesmen, kuis, dan latihan kelas 7–9."},
+    MEDIA_TOOLS:{label:"Media & Tools",icon:"🛠️",desc:"Aplikasi, simulasi, media digital, AI, dan tools pembelajaran."},
+    SHOWCASE:{label:"Project Showcase",icon:"🚀",desc:"Pamerkan karya guru dan siswa untuk saling menginspirasi."}
+  }[c] || {label:c,icon:"💻",desc:""};
+}
+
+async function openInformatikaHub(category="CODE_PROJECT", tab="PUBLISHED"){
+  showLoadingModal("Informatika Hub");
+  try{
+    const res = await apiRequest("listInformatikaHub",{token:sessionToken});
+    if(!res.success){ if(res.sessionExpired) forceLogout(); throw new Error(res.message||"Informatika Hub belum dapat dibuka."); }
+    infoHubState.category=category; infoHubState.tab=tab; infoHubState.data=res; infoHubState.query="";
+    renderInformatikaHub_();
+  }catch(err){ showToast(err.message); closeModal(); }
+}
+
+function setInfoHubCategory_(cat){ infoHubState.category=cat; infoHubState.tab="PUBLISHED"; renderInformatikaHub_(); }
+function setInfoHubTab_(tab){ infoHubState.tab=tab; renderInformatikaHub_(); }
+function filterInfoHub_(q){ infoHubState.query=String(q||"").toLowerCase(); renderInformatikaHub_(); }
+
+function renderInformatikaHub_(){
+  const s=infoHubState, d=s.data||{}, meta=infoHubCategoryMeta_(s.category);
+  let rows=s.tab==="MY"?(d.mine||[]):s.tab==="REVIEW"?(d.review||[]):(d.published||[]);
+  rows=rows.filter(x=>x.category===s.category);
+  if(s.query) rows=rows.filter(x=>[x.title,x.description,x.tags,x.namaGuru,x.sekolah,x.kelas].join(" ").toLowerCase().includes(s.query));
+  if(s.tab==="REVIEW") rows=rows.filter(x=>["MENUNGGU","TERBIT","DITOLAK","NONAKTIF"].includes(x.status));
+  const cats=["CODE_PROJECT","BANK_SOAL","MEDIA_TOOLS","SHOWCASE"];
+  const catButtons=cats.map(c=>{const m=infoHubCategoryMeta_(c);return `<button class="infohub-cat ${c===s.category?'active':''}" type="button" onclick="setInfoHubCategory_('${c}')"><span>${m.icon}</span><b>${escapeHtml(m.label)}</b></button>`}).join("");
+  const tabs=`<div class="compact-tabs">${compactTabButton("Terbit","PUBLISHED",s.tab,"","setInfoHubTab_")}${compactTabButton("Kontribusi Saya","MY",s.tab,"","setInfoHubTab_")}${d.isManager?compactTabButton("Review","REVIEW",s.tab,"","setInfoHubTab_"):""}</div>`;
+  const cards=rows.length?rows.map(x=>infoHubCardHtml_(x,d.isManager&&s.tab==="REVIEW")).join(""):`<div class="empty-panel">Belum ada konten pada kategori ini.</div>`;
+  setModalHtml(`<div class="modal-handle"></div><button class="modal-close" type="button" onclick="closeModal()">×</button>
+    <div class="infohub-hero"><div class="infohub-hero-icon">${meta.icon}</div><div><small>V1.1 • KHUSUS INFORMATIKA</small><h3>Informatika Hub</h3><p>${escapeHtml(meta.desc)}</p></div></div>
+    <div class="infohub-cats">${catButtons}</div>${tabs}
+    <button class="primary-button" type="button" onclick="openInfoHubSubmit_('${s.category}')">＋ BAGIKAN KONTEN</button>
+    <input class="portal-input compact-search" type="search" placeholder="Cari judul, tag, guru, sekolah..." value="${escapeHtml(s.query)}" oninput="filterInfoHub_(this.value)">
+    <div class="compact-list">${cards}</div><button class="secondary-button" type="button" onclick="closeModal()">Tutup</button>`);
+}
+
+function infoHubCardHtml_(x,managerMode){
+  const meta=infoHubCategoryMeta_(x.category);
+  const status=`<span class="infohub-status ${String(x.status||'').toLowerCase()}">${escapeHtml(x.status||'')}</span>`;
+  let actions=`<a class="secondary-button infohub-open" href="${escapeHtml(x.link)}" target="_blank" rel="noopener">Buka Link ↗</a>`;
+  if(managerMode){
+    if(x.status==="MENUNGGU") actions+=`<div class="infohub-review-actions"><button class="primary-button" onclick="reviewInfoHub_('${escapeJs(x.id)}','APPROVE')">Terbitkan</button><button class="secondary-button" onclick="reviewInfoHub_('${escapeJs(x.id)}','REJECT')">Tolak</button></div>`;
+    if(x.status==="TERBIT") actions+=`<button class="secondary-button" onclick="setInfoHubStatus_('${escapeJs(x.id)}','NONAKTIF')">Nonaktifkan</button>`;
+    if(x.status==="NONAKTIF") actions+=`<button class="secondary-button" onclick="setInfoHubStatus_('${escapeJs(x.id)}','TERBIT')">Terbitkan Kembali</button>`;
+  }
+  return `<article class="infohub-card"><div class="infohub-card-head"><div class="infohub-card-icon">${meta.icon}</div><div><small>Kelas ${escapeHtml(x.kelas||'UMUM')} • ${escapeHtml(x.tanggal||'')}</small><h4>${escapeHtml(x.title||'-')}</h4><p>${escapeHtml(x.namaGuru||'-')} • ${escapeHtml(x.sekolah||'-')}</p></div>${status}</div>
+    ${x.description?`<p class="infohub-desc">${escapeHtml(x.description)}</p>`:''}${x.tags?`<div class="infohub-tags">${escapeHtml(x.tags)}</div>`:''}<div class="infohub-actions">${actions}</div>${x.note?`<small class="infohub-note">Catatan: ${escapeHtml(x.note)}</small>`:''}</article>`;
+}
+
+function openInfoHubSubmit_(category){
+  const m=infoHubCategoryMeta_(category);
+  setModalHtml(`<div class="modal-handle"></div><button class="modal-close" type="button" onclick="openInformatikaHub('${category}','MY')">×</button><div class="compact-detail-header"><button class="compact-back-button" type="button" onclick="openInformatikaHub('${category}','MY')">←</button><div><h3>Bagikan ${escapeHtml(m.label)}</h3><p class="modal-subtitle">Link dapat berasal dari Google Drive, GitHub, YouTube, Forms, atau website.</p></div></div>
+  <form onsubmit="submitInfoHub_(event,'${category}')"><label class="modal-label">Judul</label><input id="infoHubTitle" class="portal-input" maxlength="180" required>
+  <label class="modal-label">Kelas</label><select id="infoHubClass" class="portal-select full"><option value="UMUM">Umum</option><option value="7">Kelas 7</option><option value="8">Kelas 8</option><option value="9">Kelas 9</option></select>
+  <label class="modal-label">Deskripsi singkat</label><textarea id="infoHubDescription" class="portal-input" rows="4" maxlength="600" placeholder="Apa isi/manfaat konten ini?"></textarea>
+  <label class="modal-label">Tag / Topik</label><input id="infoHubTags" class="portal-input" maxlength="160" placeholder="Contoh: Python, algoritma, kelas 9">
+  <label class="modal-label">Link</label><input id="infoHubLink" class="portal-input" type="url" required placeholder="https://...">
+  <button class="primary-button" type="submit">KIRIM UNTUK REVIEW</button></form>`);
+}
+
+async function submitInfoHub_(event,category){
+  event.preventDefault();
+  try{
+    const res=await apiRequest("submitInformatikaHub",{token:sessionToken,category:category,title:document.getElementById('infoHubTitle').value,kelas:document.getElementById('infoHubClass').value,description:document.getElementById('infoHubDescription').value,tags:document.getElementById('infoHubTags').value,link:document.getElementById('infoHubLink').value});
+    showToast(res.message); if(res.success) await openInformatikaHub(category,"MY");
+  }catch(err){showToast(err.message)}
+}
+
+async function reviewInfoHub_(id,decision){
+  const note=decision==="REJECT"?(prompt("Catatan penolakan (opsional):")||""):"";
+  try{const res=await apiRequest("reviewInformatikaHub",{token:sessionToken,id:id,decision:decision,note:note});showToast(res.message);if(res.success)await openInformatikaHub(infoHubState.category,"REVIEW");}catch(err){showToast(err.message)}
+}
+async function setInfoHubStatus_(id,status){
+  if(!confirm(status==="NONAKTIF"?"Nonaktifkan konten ini?":"Terbitkan kembali konten ini?"))return;
+  try{const res=await apiRequest("setInformatikaHubStatus",{token:sessionToken,id:id,status:status});showToast(res.message);if(res.success)await openInformatikaHub(infoHubState.category,"REVIEW");}catch(err){showToast(err.message)}
+}
+
+
 /* =========================================================
    V1.6 - HARI BELAJAR GURU & PRAKTIK BAIK
 ========================================================= */
@@ -6364,6 +6454,17 @@ async function openFeature(name) {
 
   if (name === "Bank Berbagi" || name === "Perangkat Pembelajaran" || name === "Perangkat") {
     await openLearningBank();
+    return;
+  }
+
+  if (name === "Informatika Hub" || name === "Code & Project Hub" || name === "Bank Soal Informatika" || name === "Media & Tools" || name === "Project Showcase") {
+    const map = {
+      "Code & Project Hub":"CODE_PROJECT",
+      "Bank Soal Informatika":"BANK_SOAL",
+      "Media & Tools":"MEDIA_TOOLS",
+      "Project Showcase":"SHOWCASE"
+    };
+    await openInformatikaHub(map[name] || "CODE_PROJECT");
     return;
   }
 
