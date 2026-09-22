@@ -1,0 +1,14 @@
+{
+  "name": "Portal Informatika KOM 3 - MGMP Informatika SMP Komisariat 3",
+  "short_name": "Info Kom 3",
+  "description": "Portal MGMP Informatika SMP Komisariat 3 Kabupaten Ciamis",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fa",
+  "theme_color": "#312e81",
+  "lang": "id",
+  "icons": [
+    {"src":"assets/logo.jpg","sizes":"any","type":"image/jpeg","purpose":"any maskable"}
+  ]
+}
