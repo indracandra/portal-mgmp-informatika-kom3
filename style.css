@@ -1,4 +1,4 @@
-/* PORTAL MGMP INFORMATIKA KOM 3 V1.0 — cloned safely from Portal KOM 3 V1.9 */
+/* PORTAL MGMP INFORMATIKA KOM 3 V1.1 FINAL — robot theme, cloned safely from Portal KOM 3 V1.9 */
 :root {
   --navy-950: #0b1026;
   --navy-900: #11183a;
@@ -3371,3 +3371,54 @@ button:disabled {
    V1.1 INFORMATIKA HUB - additive styles
 ========================================================= */
 .infohub-hero{display:flex;gap:14px;align-items:center;padding:18px;border-radius:24px;background:linear-gradient(135deg,#071a38,#0b5b82);color:#fff;margin-bottom:14px}.infohub-hero-icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-size:28px;background:rgba(255,255,255,.14)}.infohub-hero small{font-size:10px;letter-spacing:1.1px;color:#67e8f9;font-weight:800}.infohub-hero h3{margin:3px 0 4px}.infohub-hero p{margin:0;font-size:12px;opacity:.9}.infohub-cats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}.infohub-cat{border:1px solid #dce6f2;background:#fff;border-radius:16px;padding:10px;display:flex;gap:8px;align-items:center;text-align:left;color:#17324d}.infohub-cat.active{border-color:#06b6d4;background:#ecfeff;box-shadow:0 6px 18px rgba(8,145,178,.12)}.infohub-cat span{font-size:20px}.infohub-cat b{font-size:11px;line-height:1.2}.infohub-card{border:1px solid #dde7f1;border-radius:18px;padding:14px;background:#fff;margin-bottom:10px}.infohub-card-head{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:start}.infohub-card-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#eff6ff;font-size:20px}.infohub-card h4{margin:2px 0 3px;font-size:14px}.infohub-card small,.infohub-card p{color:#64748b}.infohub-card-head p{margin:0;font-size:11px}.infohub-status{font-size:9px;padding:5px 7px;border-radius:999px;background:#f1f5f9;font-weight:800}.infohub-status.terbit{background:#dcfce7;color:#166534}.infohub-status.menunggu{background:#fef3c7;color:#92400e}.infohub-status.ditolak{background:#fee2e2;color:#991b1b}.infohub-status.nonaktif{background:#e2e8f0;color:#475569}.infohub-desc{font-size:12px;line-height:1.5;margin:10px 0}.infohub-tags{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:999px;padding:5px 8px;font-size:10px;margin-bottom:8px}.infohub-actions{display:flex;gap:8px;flex-wrap:wrap}.infohub-actions .primary-button,.infohub-actions .secondary-button,.infohub-open{width:auto!important;flex:1;min-width:120px;text-decoration:none;text-align:center}.infohub-review-actions{display:flex;gap:8px;flex:2}.infohub-note{display:block;margin-top:8px;color:#b45309!important}
+
+/* =========================================================
+   V1.1 FINAL — ROBOT 3D INFORMATIKA THEME
+   VISUAL-ONLY LAYER. No stable V1.0 feature/function removed.
+========================================================= */
+:root{
+  --robot-deep:#04152f;
+  --robot-navy:#072a4c;
+  --robot-blue:#075f91;
+  --robot-cyan:#21d8ff;
+  --robot-violet:#6757ff;
+  --robot-gold:#ffc94b;
+  --robot-panel:rgba(8,43,76,.94);
+  --robot-line:rgba(33,216,255,.38);
+}
+.app-page{background:linear-gradient(180deg,#eaf6ff 0%,#f5f8fc 42%,#eef4fa 100%)}
+.mobile-app{background:transparent}
+.app-header{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(103,87,255,.32),transparent 24%),
+    radial-gradient(circle at 12% 5%,rgba(33,216,255,.20),transparent 28%),
+    linear-gradient(145deg,#03142d 0%,#062b50 58%,#071b3b 100%);
+  border-radius:0 0 42px 42px;
+  box-shadow:0 18px 42px rgba(2,25,52,.28);
+}
+.app-header::before{content:"🤖";position:absolute;right:16%;top:50px;font-size:74px;opacity:.16;filter:drop-shadow(0 0 14px rgba(33,216,255,.75));transform:rotate(-6deg);pointer-events:none}
+.app-header::after{content:"</>  •  AI  •  CODE";position:absolute;right:18px;bottom:16px;color:rgba(72,224,255,.28);font-size:10px;font-weight:900;letter-spacing:2px;pointer-events:none}
+.header-logo{border:2px solid var(--robot-cyan);background:#061d38;box-shadow:0 0 0 3px rgba(33,216,255,.12),0 0 18px rgba(33,216,255,.36)}
+.header-kicker{color:#7beaff}.header-brand strong{color:#fff}
+.header-icon-button{background:linear-gradient(145deg,rgba(21,75,118,.82),rgba(8,32,66,.92));border-color:rgba(72,224,255,.28);box-shadow:inset 0 1px rgba(255,255,255,.12),0 7px 16px rgba(0,0,0,.16)}
+.role-chip{color:#04152f;background:linear-gradient(135deg,#ffe576,#55e7ff);box-shadow:0 0 18px rgba(33,216,255,.25)}
+.member-card{position:relative;overflow:hidden;background:radial-gradient(circle at 90% 12%,rgba(33,216,255,.24),transparent 30%),linear-gradient(135deg,#063257,#075b82 58%,#07294e);border:1px solid rgba(61,225,255,.45);box-shadow:0 16px 32px rgba(3,42,76,.20),inset 0 1px rgba(255,255,255,.10)}
+.member-card::after{content:"🤖  </>";position:absolute;right:18px;bottom:8px;font-size:34px;opacity:.08;pointer-events:none}.member-card-footer button{color:#ffe077}
+.stat-grid{gap:10px}.mini-stat{border:1px solid rgba(20,105,153,.13);box-shadow:0 8px 22px rgba(5,48,82,.08)}
+.stat-icon.robot-stat{font-size:14px;letter-spacing:-4px;padding-right:4px;background:linear-gradient(145deg,#eefaff,#e8e5ff);border:1px solid rgba(33,216,255,.22)}
+.quick-menu{padding:14px 10px;gap:10px;background:linear-gradient(155deg,#061b37,#06365a);border:1px solid rgba(33,216,255,.30);box-shadow:0 14px 30px rgba(4,32,62,.18);border-radius:24px}
+.quick-item{padding:9px 3px;border:1px solid rgba(83,221,255,.17);border-radius:15px;background:linear-gradient(145deg,rgba(11,63,99,.82),rgba(5,29,59,.94));box-shadow:inset 0 1px rgba(255,255,255,.06),0 7px 15px rgba(0,0,0,.14);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.quick-item:active{transform:scale(.96)}.quick-item:hover{border-color:rgba(63,225,255,.55);box-shadow:0 0 18px rgba(33,216,255,.13)}
+.quick-icon{width:48px;height:48px;font-size:17px;letter-spacing:-5px;padding-right:5px;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.28),transparent 24%),linear-gradient(145deg,#184e80,#1d2c65)!important;border:1px solid rgba(108,231,255,.34);box-shadow:inset 0 1px rgba(255,255,255,.16),0 7px 16px rgba(0,0,0,.20),0 0 14px rgba(33,216,255,.10)}
+.quick-item:nth-child(2n) .quick-icon{background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.28),transparent 24%),linear-gradient(145deg,#234c7b,#5437a5)!important}.quick-item:nth-child(3n) .quick-icon{background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.28),transparent 24%),linear-gradient(145deg,#0a6373,#13569b)!important}.quick-item:nth-child(5n) .quick-icon{background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.28),transparent 24%),linear-gradient(145deg,#72551b,#9d6816)!important}
+.quick-item span{color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.28)}
+.section-heading h3{color:#082744}.section-heading .link-small{color:#2254c7}
+.agenda-card,.announcement-card,.prayer-compact-card{border-color:#d6e8f5;box-shadow:0 8px 24px rgba(5,50,86,.08)}
+.bottom-nav{background:rgba(4,22,48,.97);border-top:1px solid rgba(33,216,255,.26);box-shadow:0 -10px 28px rgba(3,27,55,.20);backdrop-filter:blur(14px)}
+.nav-item{color:#8fb4cf}.nav-item span{font-size:15px;letter-spacing:-5px;padding-right:5px}.nav-item small{color:#a7bfd1}.nav-item.active,.nav-item.active small{color:#5ce5ff}
+.nav-center{color:#03152e;background:radial-gradient(circle at 35% 28%,#fff 0 8%,transparent 9%),linear-gradient(145deg,#69f1ff,#735bff);border-color:#092d51;box-shadow:0 0 0 2px rgba(33,216,255,.45),0 0 25px rgba(33,216,255,.38)}.nav-center span{display:flex;align-items:center;gap:1px;font-size:17px}.nav-center b{font-size:9px;letter-spacing:0}
+.modal-card{border-top:1px solid rgba(33,216,255,.25)}
+.infohub-hero,.finance-hero,.certificate-hero,.documentation-hero,.fls-hero,.system-health-hero{background:radial-gradient(circle at 88% 10%,rgba(103,87,255,.34),transparent 30%),linear-gradient(135deg,#041a38,#075b82)!important;border:1px solid rgba(33,216,255,.28);box-shadow:0 12px 26px rgba(4,38,70,.15)}
+.infohub-hero-icon,.certificate-hero-icon,.documentation-hero-icon,.fls-hero-icon{filter:drop-shadow(0 0 8px rgba(33,216,255,.35))}
+@media(max-width:520px){.app-header::before{right:12px;top:76px;font-size:54px}.quick-menu{gap:8px 6px}.quick-item{padding:8px 1px}.quick-icon{width:45px;height:45px}}
