@@ -1,5 +1,5 @@
 /* =========================================================
-   PORTAL INFORMATIKA KOM 3 - FRONTEND V1.1 FINAL ROBOT THEME (DERIVED FROM V1.9 CORE)
+   PORTAL INFORMATIKA KOM 3 - FRONTEND V1.2 NEON ROBOT THEME (DERIVED FROM V1.9 CORE)
    GitHub Pages + Google Apps Script API
 
    FITUR V1.1 TETAP:
