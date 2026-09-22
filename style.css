@@ -3517,3 +3517,170 @@ body{background:radial-gradient(circle at top right,rgba(112,56,255,.16),transpa
   .quick-menu{gap:10px 8px;}
   .quick-item{min-height:110px;}
 }
+
+
+/* =========================================================
+   V1.2.1 VISUAL PATCH - ROBOT 3D THEME
+   Hanya perubahan visual, fungsi lama tetap.
+========================================================= */
+.auth-page{
+  background:
+    linear-gradient(180deg,rgba(3,14,31,.88),rgba(3,14,31,.97)),
+    radial-gradient(circle at 84% 14%,rgba(111,72,255,.22),transparent 24%),
+    radial-gradient(circle at 16% 22%,rgba(45,222,255,.18),transparent 28%),
+    url('assets/theme-target-v12.png') top center/cover no-repeat;
+}
+.auth-shell::before{
+  height:300px;
+  background:url('assets/robot-mascot-code.png') top center/210px auto no-repeat;
+  opacity:.16;
+}
+.app-header{
+  position:relative;
+  padding-bottom:22px;
+  background:
+    linear-gradient(180deg,rgba(6,16,38,.38),rgba(6,16,38,.16)),
+    radial-gradient(circle at 76% 18%,rgba(120,84,255,.22),transparent 16%),
+    radial-gradient(circle at 82% 20%,rgba(44,220,255,.18),transparent 18%),
+    linear-gradient(145deg,#031028 0%,#07214f 54%,#071a3c 100%);
+  overflow:hidden;
+}
+.app-header::after{
+  content:'';
+  position:absolute;
+  right:8px;
+  top:56px;
+  width:158px;
+  height:158px;
+  background:url('assets/robot-mascot-code.png') center/contain no-repeat;
+  filter:drop-shadow(0 0 18px rgba(63,225,255,.30));
+  opacity:.98;
+  pointer-events:none;
+}
+.header-brand strong{font-size:26px;line-height:1.02;display:block;margin-top:2px;max-width:230px;}
+.header-brand .header-kicker{color:#6cefff;font-weight:800;}
+.header-brand{align-items:flex-start;gap:12px;}
+.header-actions{position:relative;z-index:2;gap:10px;}
+.header-icon-button{
+  border:1px solid rgba(85,231,255,.25);
+  box-shadow:0 0 0 1px rgba(255,255,255,.05) inset,0 0 20px rgba(54,178,255,.12);
+  backdrop-filter:blur(10px);
+}
+.ui-icon{display:block;width:18px;height:18px;background:currentColor;mask:var(--icon-url) center/contain no-repeat;-webkit-mask:var(--icon-url) center/contain no-repeat;color:#fff;opacity:.92;}
+.welcome-card{
+  position:relative;
+  margin-top:18px;
+  margin-right:78px;
+  min-height:98px;
+  padding:16px 18px;
+  background:linear-gradient(135deg,rgba(6,36,78,.92),rgba(9,64,123,.82));
+  border:1px solid rgba(83,231,255,.42);
+  box-shadow:0 0 0 1px rgba(255,255,255,.05) inset,0 0 26px rgba(63,225,255,.16),0 24px 44px rgba(0,0,0,.34);
+}
+.welcome-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 0 52%,rgba(255,255,255,.08) 58%,transparent 64%);
+  pointer-events:none;
+}
+.dashboard-avatar{box-shadow:0 0 0 2px rgba(100,240,255,.26),0 0 18px rgba(100,240,255,.14);}
+.role-chip{
+  background:linear-gradient(135deg,#ffe95c,#83f6d9);
+  color:#10315c;
+  font-weight:900;
+  letter-spacing:.04em;
+}
+.member-card{
+  background:
+    radial-gradient(circle at 20% 18%,rgba(98,232,255,.10),transparent 22%),
+    linear-gradient(135deg,#07295a,#0a4874 45%,#0b3161 100%);
+  min-height:132px;
+  padding-right:140px;
+}
+.member-card::after{
+  content:'';
+  position:absolute;
+  left:12px;
+  bottom:10px;
+  width:108px;
+  height:108px;
+  background:url('assets/robot-mascot-code.png') center/contain no-repeat;
+  opacity:.95;
+  pointer-events:none;
+}
+.member-card-top{padding-left:118px;}
+.member-card-footer{padding-left:118px;}
+.points-value span{font-size:32px;filter:drop-shadow(0 0 8px rgba(255,214,77,.28));}
+.member-card-footer button{background:transparent;color:#ffd86b;font-weight:800;}
+.prayer-compact-card{display:grid;grid-template-columns:56px 1fr 18px;}
+.stat-grid{gap:14px;}
+.mini-stat{
+  min-height:98px;
+  padding:16px 16px;
+  grid-template-columns:68px 1fr;
+  align-items:center;
+  gap:12px;
+}
+.stat-art{width:68px;height:68px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(123,86,255,.08));border:1px solid rgba(86,232,255,.20);display:grid;place-items:center;box-shadow:0 10px 20px rgba(2,11,31,.28);}
+.stat-asset{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(75,229,255,.16));}
+.quick-menu{
+  padding:18px 14px 16px;
+  background:
+    linear-gradient(145deg,rgba(6,24,51,.98),rgba(5,18,40,.98));
+  border:1px solid rgba(66,225,255,.18);
+  position:relative;
+}
+.quick-menu::before{
+  content:'';
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.03),transparent 20%), radial-gradient(circle at 10% 6%,rgba(95,234,255,.06),transparent 16%);
+}
+.quick-item{
+  min-height:136px;
+  padding:12px 6px 10px;
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(10,47,91,.82),rgba(6,26,61,.96));
+  border:1px solid rgba(87,228,255,.20);
+}
+.quick-icon.art-icon{
+  width:72px;
+  height:72px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  padding:6px;
+}
+.menu-asset{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(63,225,255,.20));}
+.quick-item span{font-size:11px;font-weight:700;max-width:82px;margin:auto;}
+.agenda-card,.announcement-card{min-height:134px;padding:16px 16px;display:flex;align-items:center;gap:16px;}
+.agenda-illustration{width:80px;height:80px;flex:0 0 80px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(123,86,255,.07));display:grid;place-items:center;border:1px solid rgba(86,232,255,.18);}
+.agenda-illustration img{width:68px;height:68px;object-fit:contain;}
+.empty-agenda{font-size:14px;line-height:1.45;max-width:190px;}
+.announcement-card{justify-content:flex-start;}
+.announcement-card::after{content:'';position:absolute;left:14px;bottom:10px;width:74px;height:74px;background:url('assets/robot-mascot-code.png') center/contain no-repeat;opacity:.95;}
+.announcement-card>div:last-child{margin-left:88px;min-width:0;}
+.announcement-icon.art-announce{width:74px;height:74px;flex:0 0 74px;background:transparent;box-shadow:none;position:absolute;left:14px;top:50%;transform:translateY(-50%);} /* keeps layout compatible */
+.announcement-card h4{font-size:15px;line-height:1.35;margin:0 0 4px;}
+.announcement-card p{margin:0;}
+.bottom-nav{padding-top:8px;}
+.nav-item span.nav-svg{display:block;width:21px;height:21px;background:currentColor;mask:var(--nav-icon) center/contain no-repeat;-webkit-mask:var(--nav-icon) center/contain no-repeat;color:#cde8ff;}
+.nav-item.active span.nav-svg{color:#6cefff;filter:drop-shadow(0 0 8px rgba(80,225,255,.28));}
+.nav-center{display:grid;place-items:center;}
+.qr-center-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
+.qr-center-label img{width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(77,233,255,.28));}
+.qr-center-label b{font-size:12px;line-height:1;color:#071d42;background:transparent;}
+@media (max-width:520px){
+  .app-header::after{top:68px;right:8px;width:134px;height:134px;}
+  .header-brand strong{font-size:23px;max-width:200px;}
+  .welcome-card{margin-right:64px;}
+  .member-card{padding-right:18px;min-height:142px;}
+  .member-card::after{width:86px;height:86px;left:8px;bottom:8px;opacity:.92;}
+  .member-card-top,.member-card-footer{padding-left:96px;}
+  .quick-icon.art-icon{width:68px;height:68px;}
+  .menu-asset{width:58px;height:58px;}
+}
+.announcement-icon{font-size:0!important;width:74px;height:74px;flex:0 0 74px;background:transparent!important;box-shadow:none!important;}
+.announcement-card .announcement-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);}
+.announcement-card .announcement-icon::before{content:'';display:block;width:74px;height:74px;background:url('assets/robot-mascot-code.png') center/contain no-repeat;filter:drop-shadow(0 0 10px rgba(63,225,255,.25));}
