@@ -263,14 +263,14 @@
                 class="header-icon-button hidden"
                 onclick="openAdminCenter()"
                 title="Admin Center"
-              >⚙️</button>
+              ><span class="ui-icon" style="--icon-url:url('assets/icon-settings.svg')"></span></button>
 
               <button
                 type="button"
                 class="header-icon-button"
                 onclick="showToast('Tidak ada notifikasi baru.')"
                 title="Notifikasi"
-              >🔔</button>
+              ><span class="ui-icon" style="--icon-url:url('assets/icon-bell.svg')"></span></button>
 
               <button
                 id="logoutButton"
@@ -278,7 +278,7 @@
                 class="header-icon-button danger-soft"
                 onclick="logout()"
                 title="Keluar"
-              >↪</button>
+              ><span class="ui-icon" style="--icon-url:url('assets/icon-logout.svg')"></span></button>
             </div>
           </div>
 
@@ -351,7 +351,7 @@
 
             <div class="stat-grid">
               <div class="mini-stat">
-                <div class="stat-icon blue robot-stat">🤖✓</div>
+                <div class="stat-icon blue robot-stat stat-art"><img src="assets/icon-kehadiran.png" alt="Kehadiran" class="stat-asset"></div>
                 <div>
                   <small>Kehadiran</small>
                   <strong>0 / 0</strong>
@@ -359,7 +359,7 @@
               </div>
 
               <div class="mini-stat">
-                <div class="stat-icon gold robot-stat">🤖📜</div>
+                <div class="stat-icon gold robot-stat stat-art"><img src="assets/icon-sertifikat.png" alt="Sertifikat" class="stat-asset"></div>
                 <div>
                   <small>Sertifikat</small>
                   <strong>0</strong>
@@ -367,7 +367,7 @@
               </div>
 
               <div class="mini-stat">
-                <div class="stat-icon orange robot-stat">🤖🔥</div>
+                <div class="stat-icon orange robot-stat stat-art"><img src="assets/icon-praktik-baik.png" alt="Streak" class="stat-asset"></div>
                 <div>
                   <small>Streak</small>
                   <strong>0x</strong>
@@ -375,7 +375,7 @@
               </div>
 
               <div class="mini-stat">
-                <div class="stat-icon green robot-stat">🤖💰</div>
+                <div class="stat-icon green robot-stat stat-art"><img src="assets/icon-kas.png" alt="Kas" class="stat-asset"></div>
                 <div>
                   <small>Kas Bulan Ini</small>
                   <strong>Belum ada</strong>
@@ -394,58 +394,58 @@
 
             <div class="quick-menu">
               <button class="quick-item" type="button" onclick="openFeature('Hari Belajar Guru')">
-                <div class="quick-icon q-blue">🤖🎓</div>
+                <div class="quick-icon q-blue art-icon"><img src="assets/icon-hari-belajar.png" alt="Hari Belajar" class="menu-asset"></div>
                 <span>Hari Belajar</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Bank Praktik Baik')">
-                <div class="quick-icon q-purple">🤖💡</div>
+                <div class="quick-icon q-purple art-icon"><img src="assets/icon-praktik-baik.png" alt="Praktik Baik" class="menu-asset"></div>
                 <span>Praktik Baik</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Bank Berbagi')">
-                <div class="quick-icon q-green">🤖📚</div>
+                <div class="quick-icon q-green art-icon"><img src="assets/icon-bank-berbagi.png" alt="Bank Berbagi" class="menu-asset"></div>
                 <span>Bank Berbagi</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Informatika Hub')">
-                <div class="quick-icon q-cyan">🤖💻</div>
+                <div class="quick-icon q-cyan art-icon"><img src="assets/icon-informatika-hub.png" alt="Informatika Hub" class="menu-asset"></div>
                 <span>Informatika Hub</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Sertifikat Saya')">
-                <div class="quick-icon q-gold">🤖🏆</div>
+                <div class="quick-icon q-gold art-icon"><img src="assets/icon-sertifikat.png" alt="Sertifikat" class="menu-asset"></div>
                 <span>Sertifikat</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Kehadiran Saya')">
-                <div class="quick-icon q-cyan">🤖📅</div>
+                <div class="quick-icon q-cyan art-icon"><img src="assets/icon-kehadiran.png" alt="Kehadiran" class="menu-asset"></div>
                 <span>Kehadiran</span>
               </button>
 
               <button class="quick-item has-badge" type="button" onclick="openFeature('Izin Tidak Hadir')">
-                <div class="quick-icon q-orange">🤖📝</div>
+                <div class="quick-icon q-orange art-icon"><img src="assets/icon-izin.png" alt="Izin" class="menu-asset"></div>
                 <span>Izin</span>
                 <b id="izinPendingBadge" class="menu-badge hidden">0</b>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Kas Saya')">
-                <div class="quick-icon q-emerald">🤖💳</div>
+                <div class="quick-icon q-emerald art-icon"><img src="assets/icon-kas.png" alt="Kas Saya" class="menu-asset"></div>
                 <span>Kas Saya</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Dokumen MGMP')">
-                <div class="quick-icon q-navy">🤖📁</div>
+                <div class="quick-icon q-navy art-icon"><img src="assets/icon-bank-berbagi.png" alt="Dokumen" class="menu-asset"></div>
                 <span>Dokumen</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('Dokumentasi')">
-                <div class="quick-icon q-pink">🤖📷</div>
+                <div class="quick-icon q-pink art-icon"><img src="assets/icon-dokumentasi.png" alt="Dokumentasi" class="menu-asset"></div>
                 <span>Dokumentasi</span>
               </button>
 
               <button class="quick-item" type="button" onclick="openFeature('FLS')">
-                <div class="quick-icon q-indigo">🤖🏅</div>
+                <div class="quick-icon q-indigo art-icon"><img src="assets/robot-mascot-code.png" alt="Event Informatika" class="menu-asset"></div>
                 <span>Event Informatika</span>
               </button>
             </div>
@@ -460,6 +460,7 @@
             </div>
 
             <article class="agenda-card">
+              <div class="agenda-illustration"><img src="assets/icon-kehadiran.png" alt="Agenda"></div>
               <div class="empty-agenda">Memuat agenda...</div>
             </article>
           </section>
@@ -473,7 +474,7 @@
             </div>
 
             <article class="announcement-card">
-              <div class="announcement-icon">📢</div>
+              <div class="announcement-icon art-announce"></div>
               <div>
                 <h4>Memuat pengumuman...</h4>
               </div>
@@ -485,26 +486,26 @@
         <!-- BOTTOM NAV -->
         <nav class="bottom-nav">
           <button class="nav-item active" type="button" onclick="setNav(this,'Home')">
-            <span>🤖🏠</span>
+            <span class="nav-svg" style="--nav-icon:url('assets/icon-home.svg')"></span>
             <small>Home</small>
           </button>
 
           <button class="nav-item" type="button" onclick="setNav(this,'Agenda')">
-            <span>🤖📅</span>
+            <span class="nav-svg" style="--nav-icon:url('assets/icon-calendar.svg')"></span>
             <small>Agenda</small>
           </button>
 
           <button id="qrCenterButton" class="nav-center" type="button" onclick="openQrBottomAction()" title="Kartu Digital">
-            <span id="qrCenterLabel">🤖<b>QR</b></span>
+            <span id="qrCenterLabel" class="qr-center-label"><img src="assets/robot-mascot-code.png" alt="ScanQR"><b>ScanQR</b></span>
           </button>
 
           <button class="nav-item" type="button" onclick="setNav(this,'Keuangan')">
-            <span>🤖💳</span>
+            <span class="nav-svg" style="--nav-icon:url('assets/icon-wallet.svg')"></span>
             <small>Keuangan</small>
           </button>
 
           <button class="nav-item" type="button" onclick="setNav(this,'Profil')">
-            <span>🤖👤</span>
+            <span class="nav-svg" style="--nav-icon:url('assets/icon-user.svg')"></span>
             <small>Profil</small>
           </button>
         </nav>
